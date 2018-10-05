@@ -2,8 +2,8 @@
   <div id="app" class="container-fluid">
     <div class="row">
       <div class="col-sm-4 mx-auto">
-        <img alt="Vue logo" src="./assets/logo.png">
-        <router-view>]</router-view>
+        <img alt="Prefeitura de Porto Alegre" src="./assets/poa.png">
+        <router-view></router-view>
       </div>      
     </div>    
   </div>
