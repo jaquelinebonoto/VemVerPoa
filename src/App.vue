@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import Login from "./components/screens/Login.vue";
+import Home from "./components/screens/Home.vue";
 
 export default {
   name: "app",
   components: {
-    Login
+    Home
   }
 };
 </script>
