@@ -1,15 +1,15 @@
-//import Mapa from '../models/mapaLocal.js'
+import Mapa from '../models/mapaLocal.js'
 
 
 export default class mapApi {
   constructor( url ) {
-    this.url = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
+    this.url = url
   }
 }
 
-
 // Regular map
-/*regular_map () {
+/*
+regular_map(){
   var var_location = new google.maps.LatLng(40.725118, -73.997699);
   
   var var_mapoptions = {

@@ -2,7 +2,8 @@
 
 export default class Mapa {
     constructor( respostaCerta ) {
-      this.position = respostaCerta.position
-      this.centro = respostaCerta.centro
+      this.LatLng = respostaCerta.LatLng
+      this.Map = respostaCerta.Map
+      this.Marker = respostaCerta.Map
     } 
 }

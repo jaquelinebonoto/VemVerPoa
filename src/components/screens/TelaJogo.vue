@@ -88,30 +88,26 @@ export default {
         this.$router.push({ name: "TelaFinal" });
       }, Math.floor(Math.random() * 5000))
   },
-  regular_map() {
-      
-      const google = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
-      //mapApi.maps.event.addDomListener(window, 'load', regular_map);
-      console.log("iaiai")
-        var var_location = new google.maps.LatLng(40.725118, -73.997699);
-
+    regular_map() {
+    const api = new mapApi (`https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`)
+    const exemplo1 = new Mapa ( LatLng = (40.725118, -73.997699) )
+    //mapApi.maps.event.addDomListener(window, 'load', regular_map);
+    console.log("iaiai")
         var var_mapoptions = {
-        center: var_location,
+        center: location,
         zoom: 14
-        };
-
-        var var_map = new google.maps.Map(document.getElementById("map-container-7"),
-        var_mapoptions);
-
-        var var_marker = new google.maps.Marker({
+        }
+    /*exemplo1 = new Mapa ( Map = ((document.getElementById("map-container-7"), var_mapoptions))
+    exemplo1 = new Mapa ( Marker = ({
         position: var_location,
         map: var_map,
         title: "New York"
-        });
-        }
-      
-    }
+        }))*/
+    
+  }
 }
+}
+
 </script>
 
 <style>
