@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-success">{{ texto }}</button>
+  <button class="btn btn-danger" @click="onClick">{{ texto }}</button>
 </template>
 
 
@@ -7,7 +7,12 @@
 export default {
   name: "Button",
   props: {
-    texto: String
+    texto: String,
+    onClick: Function
   }
 };
 </script>
+
+<style>
+
+</style>

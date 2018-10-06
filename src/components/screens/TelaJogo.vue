@@ -12,7 +12,7 @@
             <small>Copyright &copy; 2018 - Todos os Direitos Reservados.</small>
             <small>Desenvolvedor Douglas Marques e Jaqueline Paz.</small>
         </footer>
-  </div>
+    </div>
 </template>
 
 
