@@ -1,12 +1,34 @@
-import Mapa from '../models/mapaLocal.js'
+//import Mapa from '../models/mapaLocal.js'
 
 
 export default class mapApi {
   constructor( url ) {
-    this.url = url
+    this.url = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
   }
 }
 
+
+// Regular map
+/*regular_map () {
+  var var_location = new google.maps.LatLng(40.725118, -73.997699);
+  
+  var var_mapoptions = {
+  center: var_location,
+  zoom: 14
+  };
+  
+  var var_map = new google.maps.Map(document.getElementById("map-container-7"),
+  var_mapoptions);
+  
+  var var_marker = new google.maps.Marker({
+  position: var_location,
+  map: var_map,
+  title: "New York"
+  });
+  }
+
+  
+  
 
  /*async defer initMap(){ //inicializa o mapa
   const url = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`

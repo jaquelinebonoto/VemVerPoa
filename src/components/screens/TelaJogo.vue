@@ -2,21 +2,22 @@
 
   <div class="row">
     <div class="col">
-    <div id="quiz">
-      <h1>Pergunta</h1>      
-      <p class="questoes">  
-        {{ questaoExemplo.pergunta }} 
-      </p>      
-      <div class="respostas">
-        <p class="opcao" v-for="opcao in questaoExemplo.opcoes" :key="opcao.id">{{ opcao }}</p>        
-      </div>               
-      <div class="checkrespostas">
-      <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/>
+      <div id="quiz">
+        <h1>Pergunta</h1>      
+        <p class="questoes">  
+          {{ questaoExemplo.pergunta }} 
+        </p>      
+        <div class="respostas">
+          <p class="opcao" v-for="opcao in questaoExemplo.opcoes" :key="opcao.id">{{ opcao }}</p>        
+        </div>               
+        <div class="checkrespostas">
+        <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/>
+        <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
+        </div>
       </div>
-    </div>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ questaoExemplo.id }} de 5</div>
-    </div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ questaoExemplo.id }} de 5</div>
+      </div>
     </div>
 
 
@@ -55,8 +56,8 @@
 </template>
 
 
-<script>
-// import mapApi from "../../api/map.js";
+<script >
+import mapApi from "../../api/map.js";
 import Button from "../shared/Button.vue";
 
 export default {
@@ -65,6 +66,7 @@ export default {
   data: () => {
     return {
       textoBotao: "Enviar resposta",
+      texto: "Ver mapa",
       questaoExemplo: {
         id: "1",
         pergunta: "Patrimônio Histórico e Cultural da cidade, já passou por 4 incêndios, mas continua a desempenhar seu papel de centro de compras e observatório de manifestações culturais. Inaugurado em 1869.",
@@ -74,7 +76,8 @@ export default {
           "c) CentroPop (camelódromo)"
         ],
         resposta: "0",
-        autor: "VemVer Inc"
+        autor: "VemVer Inc",
+        
       }
     };
   },
@@ -83,35 +86,56 @@ export default {
       this.textoBotao = "Aguarde...";
       setTimeout(() => {
         this.$router.push({ name: "TelaFinal" });
-      }, Math.floor(Math.random() * 5000));
+      }, Math.floor(Math.random() * 5000))
+  },
+  regular_map() {
+      
+      const google = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
+      //mapApi.maps.event.addDomListener(window, 'load', regular_map);
+      console.log("iaiai")
+        var var_location = new google.maps.LatLng(40.725118, -73.997699);
+
+        var var_mapoptions = {
+        center: var_location,
+        zoom: 14
+        };
+
+        var var_map = new google.maps.Map(document.getElementById("map-container-7"),
+        var_mapoptions);
+
+        var var_marker = new google.maps.Marker({
+        position: var_location,
+        map: var_map,
+        title: "New York"
+        });
+        }
+      
     }
-  }
-};
+}
 </script>
 
 <style>
 
-/*
-.wrapper {
-  width: 100%px;
-  margin-left: 0 auto;
-  height: 100%;
-  padding-top: 0px;
-}*/
 #row {
   width: 100%;
   height: 100%;
+  display: flex;
 }
 
 
 #quiz {
-    background-color: #34495e; /*#82d6ff é a cor escolhida no layout, mas ficou muito claro*/
+  background-color: #34495e; /*#82d6ff é a cor escolhida no layout, mas ficou muito claro*/
   padding-bottom: 60px;
-  width: 430px;
+  width: 75%;
   border-radius: 2%;
   color: #fff;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: 5%;
+}
+.progress {
+  width: 75%;
+  margin: 5%;
 }
 
 #quiz > h1 {
@@ -176,9 +200,7 @@ export default {
   margin: 0 10vh;
 }
 
-.progress {
-  margin: 15px;
-}
+
 
 
 </style>

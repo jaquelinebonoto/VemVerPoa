@@ -16,5 +16,6 @@ export default {
 <style>
 btn-danger {
    background-color: #FF1F22;
+   margin: 3px;
 }
 </style>
