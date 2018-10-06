@@ -1,6 +1,5 @@
 <template>
   <section>
-    <h1>VemVerPoa!</h1>
     <Button v-bind:texto="textoBotao" v-bind:onClick="jogar" type="submit"/>
   </section>
 </template>
