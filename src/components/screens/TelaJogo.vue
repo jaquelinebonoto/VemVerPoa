@@ -7,12 +7,12 @@
         <input type="radio" name="type" id="changetype-establishment"><label for="changetype-establishment">Establishments</label>
 		<input type="radio" name="type" id="changetype-address"><label for="changetype-address">Addresses</label>
     </div>
-		<div id="map"></div>
+		<!--<div id="map"></div>-->
     		<footer>
             <small>Copyright &copy; 2018 - Todos os Direitos Reservados.</small>
             <small>Desenvolvedor Douglas Marques e Jaqueline Paz.</small>
         </footer>
-    </div>
+  </div>
 </template>
 
 
@@ -23,10 +23,7 @@ export default {
   components: {},
   data: () => {
     return {};
-  },
-  created() {},
-  computed: {},
-  methods: {}
+  }
 }
 </script>
 

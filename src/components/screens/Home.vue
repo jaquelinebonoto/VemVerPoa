@@ -26,7 +26,9 @@ export default {
         }, 2000 )
       }
     },
-  created() {},
+  created() {
+    this.$route
+  },
   computed: {}
 };
 </script>
