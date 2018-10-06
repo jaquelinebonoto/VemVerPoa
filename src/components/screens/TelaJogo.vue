@@ -1,24 +1,25 @@
 <template>
 
   <div class="row">
+    
     <div class="col">
-      <div id="quiz">
-        <h1>Pergunta</h1>      
+      <div id="quiz" :class="classe">
+         <h1>Pergunta</h1>      
         <p class="questoes">  
           {{ questaoExemplo.pergunta }} 
         </p>      
         <div class="respostas">
-          <p class="opcao" v-for="opcao in questaoExemplo.opcoes" :key="opcao.id">{{ opcao }}</p>        
+          <p class="opcao" v-for="opcao in questaoExemplo.opcoes" :key="questaoExemplo.opcoes.indexOf(opcao)" @click="escolha = questaoExemplo.opcoes.indexOf(opcao)">{{ opcao }} </p>        
         </div>               
         <div class="checkrespostas">
-        <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/>
-        <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
+          <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/>
+          <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
         </div>
-      </div>
-      <div class="progress">
+        <div class="progress">
         <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ questaoExemplo.id }} de 5</div>
       </div>
-    </div>
+    </div>      
+  </div>
 
 
     <!--Grid column-->
@@ -65,59 +66,64 @@ export default {
   components: { Button },
   data: () => {
     return {
+      classe: "",
+      escolha: "",
       textoBotao: "Enviar resposta",
       texto: "Ver mapa",
       questaoExemplo: {
         id: "1",
-        pergunta: "Patrimônio Histórico e Cultural da cidade, já passou por 4 incêndios, mas continua a desempenhar seu papel de centro de compras e observatório de manifestações culturais. Inaugurado em 1869.",
+        pergunta:
+          "Patrimônio Histórico e Cultural da cidade, já passou por 4 incêndios, mas continua a desempenhar seu papel de centro de compras e observatório de manifestações culturais. Inaugurado em 1869.",
         opcoes: [
           "a) Mercado público",
           "b) Hipo Fábricas",
           "c) CentroPop (camelódromo)"
         ],
         resposta: "0",
-        autor: "VemVer Inc",
-        
+        autor: "VemVer Inc"
       }
     };
   },
   methods: {
     onSubmit() {
+      if (this.escolha === "") return;
       this.textoBotao = "Aguarde...";
       setTimeout(() => {
-        this.$router.push({ name: "TelaFinal" });
-      }, Math.floor(Math.random() * 5000))
-  },
+        if (this.escolha == this.questaoExemplo.resposta)
+          this.classe = "correto";
+        else this.classe = "errado";
+        this.textoBotao = "Próxima pergunta";
+      }, Math.floor(Math.random() * 5000));
+    },
+    mudarClasse() {},
     regular_map() {
-    const api = new mapApi (`https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`)
-    const exemplo1 = new Mapa ( LatLng = (40.725118, -73.997699) )
-    //mapApi.maps.event.addDomListener(window, 'load', regular_map);
-    console.log("iaiai")
-        var var_mapoptions = {
+      const api = new mapApi(
+        `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
+      );
+      const exemplo1 = new Mapa((LatLng = (40.725118, -73.997699)));
+      //mapApi.maps.event.addDomListener(window, 'load', regular_map);
+      console.log("iaiai");
+      var var_mapoptions = {
         center: location,
         zoom: 14
-        }
-    /*exemplo1 = new Mapa ( Map = ((document.getElementById("map-container-7"), var_mapoptions))
+      };
+      /*exemplo1 = new Mapa ( Map = ((document.getElementById("map-container-7"), var_mapoptions))
     exemplo1 = new Mapa ( Marker = ({
         position: var_location,
         map: var_map,
         title: "New York"
         }))*/
-    
+    }
   }
-}
-}
-
+};
 </script>
 
 <style>
-
 #row {
   width: 100%;
   height: 100%;
   display: flex;
 }
-
 
 #quiz {
   background-color: #34495e; /*#82d6ff é a cor escolhida no layout, mas ficou muito claro*/
@@ -137,7 +143,7 @@ export default {
 #quiz > h1 {
   text-align: center;
   padding-top: 25px;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .questoes {
@@ -175,28 +181,16 @@ export default {
   border: none;
 }
 
-.correct,
-.false {
-  background-color: #109d59;
-  width: 60px;
-  height: 30px;
-  line-height: 30px;
-  padding-left: 4px;
-  float: left;
-  margin-left: 2px;
-  margin-top: 2px;
+.correto {
+  background-color: #109d59 !important;
 }
 
-.false {
-  background-color: #dc4437;
+.errado {
+  background-color: #dc4437 !important;
 }
 
-.botao {
-  position: relative;
-  margin: 0 10vh;
+.btn {
+  display: block;
+  margin: 0 auto;
 }
-
-
-
-
 </style>

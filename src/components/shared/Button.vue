@@ -4,6 +4,7 @@
 
 
 <script>
+import Button from "./Button.vue";
 export default {
   name: "Button",
   props: {
@@ -15,7 +16,7 @@ export default {
 
 <style>
 btn-danger {
-   background-color: #FF1F22;
-   margin: 3px;
+  background-color: #ff1f22;
+  margin: 3px;
 }
 </style>
