@@ -16,7 +16,7 @@ Vue.use(VueRouter);
 const routes = [
   { name: "Home", path: "/", component: Home },
   { name: "TelaJogo", path: "/jogo", component: TelaJogo },
-  { name: "TelaFinal", path: "/social", component: TelaFinal }
+  { name: "TelaFinal", path: "/social/:pontos", component: TelaFinal }
 ];
 
 const router = new VueRouter({ routes });

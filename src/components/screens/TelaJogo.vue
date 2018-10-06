@@ -1,13 +1,14 @@
 <template>
-
-  <div class="row">    
+<div>
+  <Header :pontos="pontos" style="width: 99.099vw"/> 
+    <div class="row">    
     <div class="col">
       <div id="quiz" :class="classe">
-        <Questao :pergunta="questaoExemplo" ref="questaoRef"/>
+        <Questao :pergunta="questao" ref="questaoRef"/>
         <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/> 
-        <Button v-bind:onClick="initialize" :texto="texto" type="submit"/>
+        <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ 1 }} de 5</div>
+          <div class="progress-bar" role="progressbar" :style="{width: `${progresso}%`}" aria-valuemin="0" aria-valuemax="100">{{ questao.id }} de 5</div>
         </div>
       </div>
     </div>
@@ -42,7 +43,7 @@
 
     </div>
 </div>
-
+</div>
 
 </template>
 
@@ -51,41 +52,22 @@
 import mapApi from "../../api/map.js";
 import Button from "../shared/Button.vue";
 import Questao from "../shared/Questao.vue";
-import Mapa from '../../models/mapaLocal.js'
-
+import Mapa from "../../models/mapaLocal.js";
+import questoes from "../../models/questoes.js";
+import Header from "../shared/Header.vue";
 
 export default {
   name: "TelaJogo",
-  components: { mapApi, Button, Questao },
+  components: { Button, Questao, Header },
   data: () => {
     return {
+      pontos: 0,
+      progresso: 20,
+      numPergunta: 0,
+      questao: questoes[0],
       classe: "",
       textoBotao: "Enviar resposta",
-      texto: "Ver mapa",
-      questaoExemplo: {
-        id: "1",
-        pergunta:
-          "Patrimônio Histórico e Cultural da cidade, já passou por 4 incêndios, mas continua a desempenhar seu papel de centro de compras e observatório de manifestações culturais. Inaugurado em 1869.",
-        opcoes: [
-          "a) Mercado público",
-          "b) Hipo Fábricas",
-          "c) CentroPop (camelódromo)"
-        ],
-        resposta: "0",
-        autor: "VemVer Inc"
-      },
-      questaoExemplo2: {
-        id: "2",
-        pergunta:
-          "Conhecida como “A Rua Mais Bonita do Mundo”, toda sua extensão é coberta por imensas árvores. Possui serviço exclusivo de arborização e foi decretada Patrimônio Histórico, Cultural, Ecológico e Ambiental da cidade em 2006. Fica localizada entre os bairros Floresta e Independência.",
-        opcoes: [
-          "a) Rua Gonçalo de Carvalho",
-          "b) Rua Sofia Veloso",
-          "c) Avenida Osvaldo Aranha"
-        ],
-        resposta: "0",
-        autor: "VemVer Inc"
-      }
+      texto: "Ver mapa"
     };
   },
   methods: {
@@ -93,10 +75,12 @@ export default {
       this.classe = "";
       this.textoBotao = "Enviar resposta";
       this.$refs.questaoRef.escolha = "";
+      this.questao = this.buscarPergunta();
     },
     onSubmit() {
       if (this.textoBotao === "Próxima pergunta") {
         this.reset();
+        this.progresso += 20;
         this.questaoExemplo = this.questaoExemplo2;
       }
       if (this.classe !== "") return;
@@ -106,31 +90,46 @@ export default {
         if (
           this.$refs.questaoRef.escolha ==
           this.$refs.questaoRef.pergunta.resposta
-        )
+        ) {
           this.classe = "correto";
-        else this.classe = "errado";
+          this.aumentaPontos();
+        } else this.classe = "errado";
         this.textoBotao = "Próxima pergunta";
       }, Math.floor(Math.random() * 5000));
     },
-    
-
-      initialize() {
+    buscarPergunta() {
+      let pontos = this.pontos;
+      if (questoes[this.numPergunta + 1] === undefined)
+        this.$router.push({ name: "TelaFinal", params: { pontos } });
+      else {
+        this.numPergunta++;
+        return questoes[this.numPergunta];
+      }
+    },
+    aumentaPontos() {
+      this.pontos += 100;
+    },
+    initialize() {
       const api = new mapApi(
         `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
       );
       console.log("iaiai");
-      var directionsDisplay,
-          directionsService,
-          map;
-        var directionsService = new api.maps.DirectionsService();
-        directionsDisplay = new api.maps.DirectionsRenderer();
-        var chicago = new api.maps.LatLng(41.850033, -87.6500523);
-        var mapOptions = { zoom:7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: chicago }
-        map = new api.maps.Map(document.getElementById("map-container-7"), mapOptions);
-        directionsDisplay.setMap(map);
-      }
+      var directionsDisplay, directionsService, map;
+      var directionsService = new api.maps.DirectionsService();
+      directionsDisplay = new api.maps.DirectionsRenderer();
+      var chicago = new api.maps.LatLng(41.850033, -87.6500523);
+      var mapOptions = {
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: chicago
+      };
+      map = new api.maps.Map(
+        document.getElementById("map-container-7"),
+        mapOptions
+      );
+      directionsDisplay.setMap(map);
     }
-  
+  }
 };
 </script>
 
@@ -147,7 +146,7 @@ export default {
 }
 
 #quiz {
-  background-color: #34495e; /*#82d6ff é a cor escolhida no layout, mas ficou muito claro*/
+  background-color: #34495e;
   padding-bottom: 60px;
   width: 30vw;
   border-radius: 5%;
