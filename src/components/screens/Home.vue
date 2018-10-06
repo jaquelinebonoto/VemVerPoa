@@ -1,5 +1,6 @@
 <template>
   <section>
+    <img alt="Prefeitura de Porto Alegre" src="../../assets/poa.png" height="200px" width="200px"><br>
     <Button v-bind:texto="textoBotao" v-bind:onClick="jogar" type="submit"/>
   </section>
 </template>
@@ -31,3 +32,11 @@ export default {
   computed: {}
 };
 </script>
+
+<style>
+button{
+  width: 42%;
+ 
+
+}
+</style>

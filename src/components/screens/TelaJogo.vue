@@ -1,20 +1,7 @@
 <template>
-  <!-- <div class="map">
-    <h3>VemVerPoa!</h3>
-		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-    <div id="type-selector" class="controls">
-      <input type="radio" name="type" id="changetype-all" checked="checked"><label for="changetype-all">All</label>
-      <input type="radio" name="type" id="changetype-establishment"><label for="changetype-establishment">Establishments</label>
-      <input type="radio" name="type" id="changetype-address"><label for="changetype-address">Addresses</label>
-    </div>
-		<div id="map"></div>
-    <div id="map-container" class="z-depth-1" style="height: 500px"></div>
-    		<footer>
-            <small>Copyright &copy; 2018 - Todos os Direitos Reservados.</small>
-            <small>Desenvolvedor Douglas Marques e Jaqueline Paz.</small>
-        </footer>
-  </div> -->
-  <div class="wrapper">
+ 
+<section class="section pb-5">
+    <div class="wrapper">
     <div id="quiz">
       <h1>Pergunta</h1>      
       <p class="questoes">  
@@ -27,7 +14,45 @@
       <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/>
       </div>
     </div>
-  </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ questaoExemplo.id }} de 5</div>
+    </div>
+    </div>
+
+
+    <!--Grid column-->
+    <div class="col-lg-7">
+
+      <!--Google map-->
+      <div id="map-container-7" class="z-depth-1-half map-container" style="height: 400px"></div>
+
+      <br>
+      <!--Buttons-->
+      <div class="row text-center">
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fa fa-map-marker"></i></a>
+          <p>San Francisco, CA 94126</p>
+          <p>United States</p>
+        </div>
+
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fa fa-phone"></i></a>
+          <p>+ 01 234 567 89</p>
+          <p>Mon - Fri, 8:00-22:00</p>
+        </div>
+
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fa fa-envelope"></i></a>
+          <p>info@gmail.com</p>
+          <p>sale@gmail.com</p>
+        </div>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+</section>
+
 </template>
 
 
@@ -42,12 +67,12 @@ export default {
     return {
       textoBotao: "Enviar resposta",
       questaoExemplo: {
-        id: "000",
-        pergunta: "Qual a resposta certa?",
+        id: "1",
+        pergunta: "Patrimônio Histórico e Cultural da cidade, já passou por 4 incêndios, mas continua a desempenhar seu papel de centro de compras e observatório de manifestações culturais. Inaugurado em 1869.",
         opcoes: [
-          "a) Esta é a resposta certa",
-          "b) A opção anterior é a certa",
-          "c) A primeira opção é a certa"
+          "a) Mercado público",
+          "b) Hipo Fábricas",
+          "c) CentroPop (camelódromo)"
         ],
         resposta: "0",
         autor: "VemVer Inc"
@@ -66,61 +91,11 @@ export default {
 </script>
 
 <style>
-/* .map {
-  width: 100%;
-}
 
-#map { 
-    width: 100%;
-    height: 400px;
-    background-color: grey;
-  }
-
-  .controls {
-    margin-top: 10px;
-    border: 1px solid transparent;
-    border-radius: 2px 0 0 2px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    height: 32px;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  }
-
-  #pac-input {
-    background-color: #fff;
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: 300;
-    margin-left: 12px;
-    padding: 0 11px 0 13px;
-    text-overflow: ellipsis;
-    width: 300px;
-  }
-
-  #pac-input:focus {
-    border-color: #4d90fe;
-  }
-
-  .pac-container {
-    font-family: Roboto;
-  }
-
-  #type-selector {
-    color: #fff;
-    background-color: #4d90fe;
-    padding: 5px 11px 0px 11px;
-  }
-
-  #type-selector label {
-    font-family: Roboto;
-    font-size: 13px;
-    font-weight: 300;
-  }*/
 
 .wrapper {
-  width: 430px;
-  margin: 0 auto;
+  width: 100%px;
+  margin-left: 0 auto;
   height: 100%;
   padding-top: 0px;
 }
@@ -128,7 +103,7 @@ export default {
 #quiz {
   background-color: #34495e; /*#82d6ff é a cor escolhida no layout, mas ficou muito claro*/
   padding-bottom: 60px;
-  width: 100%;
+  width: 430px;
   border-radius: 2%;
   color: #fff;
   text-align: center;
@@ -142,9 +117,9 @@ export default {
 }
 
 .questoes {
-  font-size: 28px;
+  font-size: 17px;
   font-weight: 700;
-  font-style: italic;
+  font-style: bold;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   padding: 20px;
@@ -195,5 +170,9 @@ export default {
 .botao {
   position: relative;
   margin: 0 10vh;
+}
+
+.progress {
+  margin: 15px;
 }
 </style>

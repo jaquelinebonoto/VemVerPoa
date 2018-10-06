@@ -14,5 +14,7 @@ export default {
 </script>
 
 <style>
-
+btn-danger {
+   background-color: #FF1F22;
+}
 </style>
