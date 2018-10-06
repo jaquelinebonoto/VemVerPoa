@@ -1,13 +1,14 @@
 <template>
   <div class="map">
-    <h3>VEM VER - PORTO ALEGRE</h3>
+    <h3>VemVerPoa!</h3>
 		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
     <div id="type-selector" class="controls">
-     	<input type="radio" name="type" id="changetype-all" checked="checked"><label for="changetype-all">All</label>
-        <input type="radio" name="type" id="changetype-establishment"><label for="changetype-establishment">Establishments</label>
-		<input type="radio" name="type" id="changetype-address"><label for="changetype-address">Addresses</label>
+      <input type="radio" name="type" id="changetype-all" checked="checked"><label for="changetype-all">All</label>
+      <input type="radio" name="type" id="changetype-establishment"><label for="changetype-establishment">Establishments</label>
+      <input type="radio" name="type" id="changetype-address"><label for="changetype-address">Addresses</label>
     </div>
-		<!--<div id="map"></div>-->
+		<div id="map"></div>
+    <div id="map-container" class="z-depth-1" style="height: 500px"></div>
     		<footer>
             <small>Copyright &copy; 2018 - Todos os Direitos Reservados.</small>
             <small>Desenvolvedor Douglas Marques e Jaqueline Paz.</small>
@@ -17,6 +18,7 @@
 
 
 <script>
+import mapApi from '../../api/map.js'
 
 export default {
   name: "TelaJogo",
@@ -28,7 +30,13 @@ export default {
 </script>
 
 <style>
-#map { /*tamanho da div que contem o mapa*/
+
+
+.map {
+  width: 100%;
+}
+
+#map { 
     width: 100%;
     height: 400px;
     background-color: grey;
@@ -75,4 +83,5 @@ export default {
     font-size: 13px;
     font-weight: 300;
   }
+  
   </style>
