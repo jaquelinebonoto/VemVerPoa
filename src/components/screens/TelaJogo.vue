@@ -6,11 +6,11 @@
       <div id="quiz" :class="classe">
         <Questao :pergunta="questao" ref="questaoRef"/>
         <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/> 
-        <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
+        <Button v-bind:onClick="initialize" :texto="texto" type="submit"/>
         <div class="progress">
           <div class="progress-bar" role="progressbar" :style="{width: `${progresso}%`}" aria-valuemin="0" aria-valuemax="100">{{ questao.id }} de 5</div>
         </div>
-      </div>
+    </div>
     </div>
     
     <!--Grid column-->
@@ -147,14 +147,14 @@ export default {
 }
 
 .progress {
-  width: 75%;
+  width: 70%;
   margin: 5%;
 }
 
 #quiz {
   background-color: #34495e;
   padding-bottom: 60px;
-  width: 30vw;
+  width: 70%;
   border-radius: 5%;
   color: #fff;
   text-align: center;
