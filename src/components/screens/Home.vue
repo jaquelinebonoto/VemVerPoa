@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Button from '../shared/Button.vue'
+import Button from "../shared/Button.vue";
 
 export default {
   name: "Home",
@@ -15,19 +15,19 @@ export default {
   },
   data: () => {
     return {
-      textoBotao: 'Jogar!'
-    }
+      textoBotao: "Jogar!"
+    };
   },
   methods: {
-      jogar(){
-        this.textoBotao = 'Carregando...'
-        setTimeout( () => {
-          this.$router.push( { name: 'TelaJogo' } )
-        }, 2000 )
-      }
-    },
+    jogar() {
+      this.textoBotao = "Carregando...";
+      setTimeout(() => {
+        this.$router.push({ name: "TelaJogo" });
+      }, Math.floor(Math.random() * 5000));
+    }
+  },
   created() {
-    this.$route
+    this.$route;
   },
   computed: {}
 };
