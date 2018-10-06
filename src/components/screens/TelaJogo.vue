@@ -1,7 +1,7 @@
 <template>
- 
-<section class="section pb-5">
-    <div class="wrapper">
+
+  <div class="row">
+    <div class="col">
     <div id="quiz">
       <h1>Pergunta</h1>      
       <p class="questoes">  
@@ -21,10 +21,10 @@
 
 
     <!--Grid column-->
-    <div class="col-lg-7">
+    <div class="col">
 
       <!--Google map-->
-      <div id="map-container-7" class="z-depth-1-half map-container" style="height: 400px"></div>
+      <div id="map-container-7" class="z-depth-1-half map-container"></div>
 
       <br>
       <!--Buttons-->
@@ -49,9 +49,8 @@
       </div>
 
     </div>
-    <!--Grid column-->
+</div>
 
-</section>
 
 </template>
 
@@ -92,16 +91,21 @@ export default {
 
 <style>
 
-
+/*
 .wrapper {
   width: 100%px;
   margin-left: 0 auto;
   height: 100%;
   padding-top: 0px;
+}*/
+#row {
+  width: 100%;
+  height: 100%;
 }
 
+
 #quiz {
-  background-color: #34495e; /*#82d6ff é a cor escolhida no layout, mas ficou muito claro*/
+    background-color: #34495e; /*#82d6ff é a cor escolhida no layout, mas ficou muito claro*/
   padding-bottom: 60px;
   width: 430px;
   border-radius: 2%;
@@ -175,4 +179,6 @@ export default {
 .progress {
   margin: 15px;
 }
+
+
 </style>

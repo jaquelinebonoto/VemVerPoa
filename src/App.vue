@@ -1,12 +1,9 @@
 <template>
   <div id="app" class="container-fluid">
     <div class="row">
-      <div class="col-sm-4 mx-auto">
-        
         <router-view></router-view>
       </div>      
     </div>    
-  </div>
 </template>
 
 <script>
