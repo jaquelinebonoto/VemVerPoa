@@ -2,7 +2,7 @@
 
   <div class="row">    
     <div class="col">
-      <Questao :pergunta="questaoExemplo" :trocar="trocar" ref="questaoRef"/>
+      <Questao :pergunta="questaoExemplo" ref="questaoRef"/>
       <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
       <div class="progress">
         <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ 1 }} de 5</div>
