@@ -34,9 +34,7 @@ export default {
 </script>
 
 <style>
-button{
+button {
   width: 42%;
- 
-
 }
 </style>

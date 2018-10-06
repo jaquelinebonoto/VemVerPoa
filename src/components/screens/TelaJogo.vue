@@ -2,10 +2,13 @@
 
   <div class="row">    
     <div class="col">
-      <Questao :pergunta="questaoExemplo" ref="questaoRef"/>
-      <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ 1 }} de 5</div>
+      <div id="quiz" :class="classe">
+        <Questao :pergunta="questaoExemplo" ref="questaoRef"/>
+        <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/> 
+        <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ 1 }} de 5</div>
+        </div>
       </div>
     </div>
     
@@ -54,6 +57,8 @@ export default {
   components: { mapApi, Button, Questao },
   data: () => {
     return {
+      classe: "",
+      textoBotao: "Enviar resposta",
       texto: "Ver mapa",
       questaoExemplo: {
         id: "1",
@@ -66,10 +71,45 @@ export default {
         ],
         resposta: "0",
         autor: "VemVer Inc"
+      },
+      questaoExemplo2: {
+        id: "2",
+        pergunta:
+          "Conhecida como “A Rua Mais Bonita do Mundo”, toda sua extensão é coberta por imensas árvores. Possui serviço exclusivo de arborização e foi decretada Patrimônio Histórico, Cultural, Ecológico e Ambiental da cidade em 2006. Fica localizada entre os bairros Floresta e Independência.",
+        opcoes: [
+          "a) Rua Gonçalo de Carvalho",
+          "b) Rua Sofia Veloso",
+          "c) Avenida Osvaldo Aranha"
+        ],
+        resposta: "0",
+        autor: "VemVer Inc"
       }
     };
   },
   methods: {
+    reset() {
+      this.classe = "";
+      this.textoBotao = "Enviar resposta";
+      this.$refs.questaoRef.escolha = "";
+    },
+    onSubmit() {
+      if (this.textoBotao === "Próxima pergunta") {
+        this.reset();
+        this.questaoExemplo = this.questaoExemplo2;
+      }
+      if (this.classe !== "") return;
+      if (this.$refs.questaoRef.escolha === "") return;
+      this.textoBotao = "Aguarde...";
+      setTimeout(() => {
+        if (
+          this.$refs.questaoRef.escolha ==
+          this.$refs.questaoRef.pergunta.resposta
+        )
+          this.classe = "correto";
+        else this.classe = "errado";
+        this.textoBotao = "Próxima pergunta";
+      }, Math.floor(Math.random() * 5000));
+    },
     regular_map() {
       const api = new mapApi(
         `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
@@ -102,5 +142,35 @@ export default {
 .progress {
   width: 75%;
   margin: 5%;
+}
+
+#quiz {
+  background-color: #34495e; /*#82d6ff é a cor escolhida no layout, mas ficou muito claro*/
+  padding-bottom: 60px;
+  width: 30vw;
+  border-radius: 5%;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: 5%;
+}
+
+#quiz > h1 {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 2rem;
+}
+
+.correto {
+  background-color: #109d59 !important;
+}
+
+.errado {
+  background-color: #dc4437 !important;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
 }
 </style>
