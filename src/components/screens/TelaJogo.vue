@@ -5,7 +5,7 @@
       <div id="quiz" :class="classe">
         <Questao :pergunta="questaoExemplo" ref="questaoRef"/>
         <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/> 
-        <Button v-bind:onClick="regular_map" :texto="texto" type="submit"/>
+        <Button v-bind:onClick="initialize" :texto="texto" type="submit"/>
         <div class="progress">
           <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuemin="0" aria-valuemax="100">{{ 1 }} de 5</div>
         </div>
@@ -51,6 +51,8 @@
 import mapApi from "../../api/map.js";
 import Button from "../shared/Button.vue";
 import Questao from "../shared/Questao.vue";
+import Mapa from '../../models/mapaLocal.js'
+
 
 export default {
   name: "TelaJogo",
@@ -110,25 +112,25 @@ export default {
         this.textoBotao = "Próxima pergunta";
       }, Math.floor(Math.random() * 5000));
     },
-    regular_map() {
+    
+
+      initialize() {
       const api = new mapApi(
         `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
       );
-      const exemplo1 = new Mapa((LatLng = (40.725118, -73.997699)));
-      //mapApi.maps.event.addDomListener(window, 'load', regular_map);
       console.log("iaiai");
-      var var_mapoptions = {
-        center: location,
-        zoom: 14
-      };
-      /*exemplo1 = new Mapa ( Map = ((document.getElementById("map-container-7"), var_mapoptions))
-    exemplo1 = new Mapa ( Marker = ({
-        position: var_location,
-        map: var_map,
-        title: "New York"
-        }))*/
+      var directionsDisplay,
+          directionsService,
+          map;
+        var directionsService = new api.maps.DirectionsService();
+        directionsDisplay = new api.maps.DirectionsRenderer();
+        var chicago = new api.maps.LatLng(41.850033, -87.6500523);
+        var mapOptions = { zoom:7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: chicago }
+        map = new api.maps.Map(document.getElementById("map-container-7"), mapOptions);
+        directionsDisplay.setMap(map);
+      }
     }
-  }
+  
 };
 </script>
 

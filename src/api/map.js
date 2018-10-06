@@ -5,8 +5,37 @@ export default class mapApi {
   constructor( url ) {
     this.url = url
   }
-}
 
+
+/*async regularMap (){
+  const url = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
+  
+  var var_location = new Mapa.maps.LatLng(40.725118, -73.997699);
+
+        var var_mapoptions = {
+        center: var_location,
+        zoom: 14
+        };
+
+        var var_map = new Mapa.maps.Map(document.getElementById("map-container-7"),
+        var_mapoptions);
+
+        var var_marker = new Mapa.maps.Marker({
+        position: var_location,
+        map: var_map,
+        title: "New York"
+        });
+        
+  return new Promise( resolve => {
+    fetch( url )
+    .then( t => {
+      google.maps.event.addDomListener(window, 'load', regular_map)
+      resolve( t )
+      } )
+    } 
+  }
+
+}*/
 // Regular map
 /*
 regular_map(){
@@ -70,3 +99,4 @@ regular_map(){
 }
 }
 */
+}
