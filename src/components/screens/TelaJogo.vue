@@ -18,8 +18,14 @@
 
       <!--Google map-->
       <div id="map-container-7" class="z-depth-1-half map-container"></div>
-
       <br>
+      <GmapMap
+        :center="{lat:-30.1087957, lng:-51.3172272}"
+        :zoom="7"
+        map-type-id="terrain"
+        style="width: 500px; height: 300px"
+      >
+      </GmapMap>
       <!--Buttons-->
       <div class="row text-center">
         <div class="col-md-4">
@@ -114,20 +120,20 @@ export default {
         `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
       );
       console.log("iaiai");
-      var directionsDisplay, directionsService, map;
-      var directionsService = new api.maps.DirectionsService();
-      directionsDisplay = new api.maps.DirectionsRenderer();
-      var chicago = new api.maps.LatLng(41.850033, -87.6500523);
-      var mapOptions = {
-        zoom: 7,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: chicago
-      };
-      map = new api.maps.Map(
-        document.getElementById("map-container-7"),
-        mapOptions
-      );
-      directionsDisplay.setMap(map);
+      // var directionsDisplay, directionsService, map;
+      // var directionsService = new api.maps.DirectionsService();
+      // directionsDisplay = new api.maps.DirectionsRenderer();
+      // var chicago = new api.maps.LatLng(41.850033, -87.6500523);
+      // var mapOptions = {
+      //   zoom: 7,
+      //   mapTypeId: google.maps.MapTypeId.ROADMAP,
+      //   center: chicago
+      // };
+      // map = new api.maps.Map(
+      //   document.getElementById("map-container-7"),
+      //   mapOptions
+      // );
+      // directionsDisplay.setMap(map);
     }
   }
 };

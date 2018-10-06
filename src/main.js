@@ -6,6 +6,14 @@ import pt_BR from "vee-validate/dist/locale/pt_BR";
 import TelaJogo from "./components/screens/TelaJogo";
 import Home from "./components/screens/Home";
 import TelaFinal from "./components/screens/TelaFinal";
+import * as VueGoogleMaps from 'vue2-google-maps'
+ 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyDdakOtXZKd6xB4tztNhSk5KwbPtMLBDA0',
+    libraries: 'places,visualization',
+  }
+})
 
 Vue.config.productionTip = false;
 
