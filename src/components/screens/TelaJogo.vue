@@ -67,7 +67,7 @@ export default {
       questao: {},
       classe: "",
       textoBotao: "Enviar resposta",
-      texto: "Ver mapa"
+      texto: "Ver mapa",
     };
   },
   methods: {
@@ -111,18 +111,24 @@ export default {
       this.pontos += 100;
     },
      initialize() {
-      const api = new mapApi(
+      /*const api = new mapApi(
         `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
       );
       console.log("iaiai");
-      /*
-            console.log("botão apertado sem escolha");
-      if (this.$refs.questaoRef.escolha === "") //mapa na posição inicial 
-            console.log("escolha preenchida");
-      if (this.$refs.questaoRef.escolha !== "") 
+      */
+            
+      if (this.$refs.questaoRef.escolha === "") {
+        //mapa na posição inicial 
+        console.log("botão apertado sem escolha");
+      } 
+            
+      if (this.$refs.questaoRef.escolha !== "") {
+        console.log("escolha preenchida");
         //colocar as posições dos locais no json
         //fazer com que o mapa seja apresentado de acordo com a resposta correta
-      */
+      }
+
+      
     }
   },
   created() {

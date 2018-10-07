@@ -9,7 +9,10 @@
         "c) CentroPop (camelódromo)"
       ],
       "resposta": "0",
-      "autor": "VemVer Inc"
+      "autor": "VemVer Inc",
+      "mapa" : [
+        "{lat:-30.027524, lng: -51.227773}"
+      ]
     },
     {
       "id": "2",
@@ -20,7 +23,10 @@
         "c) Avenida Osvaldo Aranha"
       ],
       "resposta": "0",
-      "autor": "VemVer Inc"
+      "autor": "VemVer Inc",
+      "mapa" : [
+        "{lat:-30.027020, lng: -51.211058}" 
+      ]
     },
     {
       "id": "3",
@@ -31,7 +37,10 @@
         "c) Casa de Cultura Mário Quintana"
       ],
       "resposta": "2",
-      "autor": "VemVer Inc"
+      "autor": "VemVer Inc",
+      "mapa" : [
+        "{lat:-30.031059, lng: -51.234260}"
+      ]
     },
     {
       "id": "4",
@@ -42,14 +51,20 @@
         "c) Rua 7 de Setembro"
       ],
       "resposta": "1",
-      "autor": "VemVer Inc"
+      "autor": "VemVer Inc",
+      "mapa" : [
+        "{lat:-30.030384, lng: -51.231921}"
+      ]
     },
     {
       "id": "5",
       "pergunta": "Bairro que faz parte do Parque Estadual Delta do Jacuí. Faz divisa com a cidade de Guaíba, e  suas ilhas serviram de inspiração para o curta metragem “Ilha das Flores”, dirigido pelo gaúcho Jorge Furtado e lançado em 1989.",
       "opcoes": ["a) Arquipélago", "b) Moinhos de Vento", "c) Beira Rio"],
       "resposta": "0",
-      "autor": "VemVer Inc"
+      "autor": "VemVer Inc",
+      "mapa" : [
+        "{lat:-29.981746, lng: -51.258529}"
+      ]
     }
   ]
 }
