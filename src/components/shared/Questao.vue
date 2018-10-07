@@ -5,7 +5,7 @@
           {{ pergunta.pergunta }} 
         </p>      
         <div class="respostas" v-for="opcao in pergunta.opcoes" :key="pergunta.opcoes.indexOf(opcao)" >
-          <input type="radio" class="opcao" @click="escolha = pergunta.opcoes.indexOf(opcao)"  /> 
+          <input type="radio" class="opcao" @click="escolha = pergunta.opcoes.indexOf(opcao)" :value="escolha" :id="escolha" /> 
           <label :for="pergunta.opcoes.indexOf(opcao)"> {{opcao}}</label>     
           <br>
         </div>                 

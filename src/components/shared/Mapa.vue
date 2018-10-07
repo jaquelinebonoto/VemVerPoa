@@ -4,7 +4,7 @@
       <div id="map-container-7" class="z-depth-1-half map-container"></div>
       <br>
       <GmapMap
-        :center="{lat:-30.1087957, lng:-51.3172272}"
+        :center="pergunta.centro"
         :zoom="7"
         map-type-id="terrain"
         style="width: 600px; height: 400px"
@@ -34,7 +34,7 @@ export default {
   props: { pergunta: Object },
   data: () => {
     return {
-      escolha: ""
+      centro: "pergunta.centro"
     };
   },
   methods: {}

@@ -10,9 +10,7 @@
       ],
       "resposta": "0",
       "autor": "VemVer Inc",
-      "mapa" : [
-        "{lat:-30.027524, lng: -51.227773}"
-      ]
+      "centro" : "{lat:-30.027524, lng: -51.227773}"
     },
     {
       "id": "2",
@@ -24,9 +22,7 @@
       ],
       "resposta": "0",
       "autor": "VemVer Inc",
-      "mapa" : [
-        "{lat:-30.027020, lng: -51.211058}" 
-      ]
+      "centro" : "{lat:-30.027020, lng: -51.211058}"
     },
     {
       "id": "3",
@@ -38,9 +34,7 @@
       ],
       "resposta": "2",
       "autor": "VemVer Inc",
-      "mapa" : [
-        "{lat:-30.031059, lng: -51.234260}"
-      ]
+      "centro" : "{lat:-30.031059, lng: -51.234260}"
     },
     {
       "id": "4",
@@ -52,9 +46,7 @@
       ],
       "resposta": "1",
       "autor": "VemVer Inc",
-      "mapa" : [
-        "{lat:-30.030384, lng: -51.231921}"
-      ]
+      "centro" : "{lat:-30.030384, lng: -51.231921}"
     },
     {
       "id": "5",
@@ -62,9 +54,7 @@
       "opcoes": ["a) Arquipélago", "b) Moinhos de Vento", "c) Beira Rio"],
       "resposta": "0",
       "autor": "VemVer Inc",
-      "mapa" : [
-        "{lat:-29.981746, lng: -51.258529}"
-      ]
+      "centro" : "{lat:-29.981746, lng: -51.258529}"
     }
   ]
 }
