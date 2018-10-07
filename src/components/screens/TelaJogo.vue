@@ -59,7 +59,6 @@ import mapApi from "../../api/map.js";
 import Button from "../shared/Button.vue";
 import Questao from "../shared/Questao.vue";
 import Mapa from "../../models/mapaLocal.js";
-import questoes from "../../models/questoes.js";
 import Header from "../shared/Header.vue";
 
 export default {
@@ -70,7 +69,8 @@ export default {
       pontos: 0,
       progresso: 20,
       numPergunta: 0,
-      questao: questoes[0],
+      questoes: [],
+      questao: {},
       classe: "",
       textoBotao: "Enviar resposta",
       texto: "Ver mapa"
@@ -81,13 +81,12 @@ export default {
       this.classe = "";
       this.textoBotao = "Enviar resposta";
       this.$refs.questaoRef.escolha = "";
-      this.questao = this.buscarPergunta();
     },
     onSubmit() {
       if (this.textoBotao === "Próxima pergunta") {
         this.reset();
         this.progresso += 20;
-        this.questaoExemplo = this.questaoExemplo2;
+        this.questao = this.buscarPergunta();
       }
       if (this.classe !== "") return;
       if (this.$refs.questaoRef.escolha === "") return;
@@ -104,12 +103,12 @@ export default {
       }, Math.floor(Math.random() * 5000));
     },
     buscarPergunta() {
-      let pontos = this.pontos;
-      if (questoes[this.numPergunta + 1] === undefined)
+      if (this.questoes[this.numPergunta + 1] === undefined) {
+        let pontos = this.pontos;
         this.$router.push({ name: "TelaFinal", params: { pontos } });
-      else {
+      } else {
         this.numPergunta++;
-        return questoes[this.numPergunta];
+        return this.questoes[this.numPergunta];
       }
     },
     aumentaPontos() {
@@ -135,6 +134,20 @@ export default {
       // );
       // directionsDisplay.setMap(map);
     }
+  },
+  created() {
+    fetch(`http://localhost:3000/perguntas/`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(j => j.json())
+      .then(p => {
+        this.questoes = p;
+        this.questao = this.questoes[0];
+      });
   }
 };
 </script>
