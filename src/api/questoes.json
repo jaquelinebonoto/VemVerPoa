@@ -26,22 +26,22 @@
       "id": "3",
       "pergunta": "Até os anos 80, este lugar era um hotel e teve como hóspede um famoso escritor. Foi o primeiro prédio de cimento armado da cidade. Atualmente é um local de cultura e lazer, o quarto do escritor mencionado é preservado e aberto para visitações.",
       "opcoes": [
-        "a) Casa de Cultura Mário Quintana",
+        "a) Cine Capitólio",
         "b) Museu de Artes do Rio Grande do Sul",
-        "c) Cine Capitólio"
+        "c) Casa de Cultura Mário Quintana"
       ],
-      "resposta": "0",
+      "resposta": "2",
       "autor": "VemVer Inc"
     },
     {
       "id": "4",
       "pergunta": "A rua mais antiga da cidade, conhecida como Rua da Praia por ficar muito próximo às margens do rio, acabou por ficar distante após sucessivos aterros. O seu cruzamento com a Avenida Borges de Medeiros, é palco de manifestações populares de variadas naturezas – a Esquina Democrática.",
       "opcoes": [
-        "a) Rua dos Andradas",
-        "b) Rua Doutor Flores",
+        "a) Rua Doutor Flores",
+        "b) Rua dos Andradas",
         "c) Rua 7 de Setembro"
       ],
-      "resposta": "0",
+      "resposta": "1",
       "autor": "VemVer Inc"
     },
     {

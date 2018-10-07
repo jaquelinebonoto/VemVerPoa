@@ -2,10 +2,10 @@
 <div>
   <Header :pontos="pontos" style="width: 99.099vw"/> 
     <div class="row">    
-    <div class="col">
+    <div class="colPergunta">
       <div id="quiz" :class="classe">
         <Questao :pergunta="questao" ref="questaoRef"/>
-        <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/> 
+        <Button v-bind:onClick="onSubmit" :texto="textoBotao" type="submit"/> <br>
         <Button v-bind:onClick="initialize" :texto="texto" type="submit"/>
         <div class="progress">
           <div class="progress-bar" role="progressbar" :style="{width: `${progresso}%`}" aria-valuemin="0" aria-valuemax="100">{{ questao.id }} de 5</div>
@@ -14,7 +14,7 @@
     </div>
     
     <!--Grid column-->
-    <div class="col">
+    <div class="colMapa">
 
       <!--Google map-->
       <div id="map-container-7" class="z-depth-1-half map-container"></div>
@@ -23,7 +23,7 @@
         :center="{lat:-30.1087957, lng:-51.3172272}"
         :zoom="7"
         map-type-id="terrain"
-        style="width: 500px; height: 300px"
+        style="width: 600px; height: 400px"
       >
       </GmapMap>
       <!--Buttons-->
@@ -97,10 +97,12 @@ export default {
           this.$refs.questaoRef.pergunta.resposta
         ) {
           this.classe = "correto";
+          console.log("Correto")
           this.aumentaPontos();
         } else this.classe = "errado";
+                  console.log("Errado")
         this.textoBotao = "Próxima pergunta";
-      }, Math.floor(Math.random() * 5000));
+      }, 2000);
     },
     buscarPergunta() {
       if (this.questoes[this.numPergunta + 1] === undefined) {
@@ -119,20 +121,6 @@ export default {
         `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
       );
       console.log("iaiai");
-      // var directionsDisplay, directionsService, map;
-      // var directionsService = new api.maps.DirectionsService();
-      // directionsDisplay = new api.maps.DirectionsRenderer();
-      // var chicago = new api.maps.LatLng(41.850033, -87.6500523);
-      // var mapOptions = {
-      //   zoom: 7,
-      //   mapTypeId: google.maps.MapTypeId.ROADMAP,
-      //   center: chicago
-      // };
-      // map = new api.maps.Map(
-      //   document.getElementById("map-container-7"),
-      //   mapOptions
-      // );
-      // directionsDisplay.setMap(map);
     }
   },
   created() {
@@ -159,6 +147,18 @@ export default {
   display: flex;
 }
 
+.colPergunta {
+  width: 40%;
+  height: 100%;
+  display: inline-flex;
+
+}
+
+.colMapa {
+  width: 60%;
+  height: 100%;
+
+}
 .progress {
   width: 70%;
   margin: 5%;
