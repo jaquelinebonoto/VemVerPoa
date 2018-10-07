@@ -30,20 +30,14 @@
       <div class="row text-center">
         <div class="col-md-4">
           <a class="btn-floating blue accent-1"><i class="fa fa-map-marker"></i></a>
-          <p>San Francisco, CA 94126</p>
-          <p>United States</p>
-        </div>
-
-        <div class="col-md-4">
-          <a class="btn-floating blue accent-1"><i class="fa fa-phone"></i></a>
-          <p>+ 01 234 567 89</p>
-          <p>Mon - Fri, 8:00-22:00</p>
+          <p>Porto Alegre, RS</p>
+          <p>Brasil</p>
         </div>
 
         <div class="col-md-4">
           <a class="btn-floating blue accent-1"><i class="fa fa-envelope"></i></a>
-          <p>info@gmail.com</p>
-          <p>sale@gmail.com</p>
+          <p>jaqueline.bonoto@dbccompany.com.br</p>
+          <p>douglas.marques@dbccompany.com.br</p>
         </div>
       </div>
 
@@ -116,11 +110,19 @@ export default {
     aumentaPontos() {
       this.pontos += 100;
     },
-    initialize() {
+     initialize() {
       const api = new mapApi(
         `https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap/`
       );
       console.log("iaiai");
+      /*
+            console.log("botão apertado sem escolha");
+      if (this.$refs.questaoRef.escolha === "") //mapa na posição inicial 
+            console.log("escolha preenchida");
+      if (this.$refs.questaoRef.escolha !== "") 
+        //colocar as posições dos locais no json
+        //fazer com que o mapa seja apresentado de acordo com a resposta correta
+      */
     }
   },
   created() {
@@ -160,7 +162,7 @@ export default {
 
 }
 .progress {
-  width: 70%;
+  width: 90%;
   margin: 5%;
 }
 
