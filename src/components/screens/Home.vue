@@ -1,8 +1,8 @@
 <template>
-  <section>
-    <img alt="Prefeitura de Porto Alegre" src="../../assets/poa.png" height="200px" width="200px"><br>
-    <Button v-bind:texto="textoBotao" v-bind:onClick="jogar" type="submit"/>
-  </section>
+  <div class="row mx-auto">
+    <div class="col"><img alt="Prefeitura de Porto Alegre" src="../../assets/poa.png" height="200px" width="200px"><br>
+    <Button v-bind:texto="textoBotao" v-bind:onClick="jogar" type="submit"/></div>    
+  </div>
 </template>
 
 <script>
