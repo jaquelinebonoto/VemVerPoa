@@ -4,8 +4,10 @@
         <p class="questoes">  
           {{ pergunta.pergunta }} 
         </p>      
-        <div class="respostas">
-          <p class="opcao" v-for="opcao in pergunta.opcoes" :key="pergunta.opcoes.indexOf(opcao)" @click="escolha = pergunta.opcoes.indexOf(opcao)">{{ opcao }} </p>        
+        <div class="respostas" v-for="opcao in pergunta.opcoes" :key="pergunta.opcoes.indexOf(opcao)" >
+          <input type="radio" class="opcao" @click="escolha = pergunta.opcoes.indexOf(opcao)" :value="escolha" :id="escolha" /> 
+          <label :for="pergunta.opcoes.indexOf(opcao)"> {{opcao}}</label>     
+          <br>
         </div>                 
     </div> 
 </template>
