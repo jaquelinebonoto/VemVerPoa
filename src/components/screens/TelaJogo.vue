@@ -12,8 +12,7 @@
         </div>
     </div>
     </div>
-    <!--Grid column-->
-    <OMapa />
+    <OMapa :centro="centro"/>
 </div>
 </div>
 
@@ -41,7 +40,7 @@ export default {
       classe: "",
       textoBotao: "Enviar resposta",
       texto: "Ver mapa",
-      centro: ""
+      centro: { lat: -30.1087957, lng: -51.3172272 }
     };
   },
   methods: {
@@ -65,10 +64,8 @@ export default {
           this.$refs.questaoRef.pergunta.resposta
         ) {
           this.classe = "correto";
-          console.log("Correto")
           this.aumentaPontos();
         } else this.classe = "errado";
-                  console.log("Errado")
         this.textoBotao = "Próxima pergunta";
       }, 2000);
     },
@@ -84,21 +81,8 @@ export default {
     aumentaPontos() {
       this.pontos += 100;
     },
-     initialize() {     
-      if (this.$refs.questaoRef.escolha === "") {
-        this.pergunta.centro = "{lat:-30.1087957, lng:-51.3172272}"
-        //mapa na posição inicial 
-        console.log("botão apertado sem escolha");
-      } 
-            
-      if (this.$refs.questaoRef.escolha !== "") {
-        this.centro = this.questoes.pergunta.centro
-        console.log("escolha preenchida");
-        //colocar as posições dos locais no json
-        //fazer com que o mapa seja apresentado de acordo com a resposta correta
-      }
-
-      
+    initialize() {
+      this.centro = this.questao.centro;
     }
   },
   created() {
@@ -129,13 +113,11 @@ export default {
   width: 40%;
   height: 100%;
   display: inline-flex;
-
 }
 
 .colMapa {
   width: 60%;
   height: 100%;
-
 }
 .progress {
   width: 90%;

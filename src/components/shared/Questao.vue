@@ -4,10 +4,8 @@
         <p class="questoes">  
           {{ pergunta.pergunta }} 
         </p>      
-        <div class="respostas" v-for="opcao in pergunta.opcoes" :key="pergunta.opcoes.indexOf(opcao)" >
-          <input type="radio" class="opcao" @click="escolha = pergunta.opcoes.indexOf(opcao)" :value="escolha" :id="escolha" /> 
-          <label :for="pergunta.opcoes.indexOf(opcao)"> {{opcao}}</label>     
-          <br>
+        <div class="respostas">
+          <p class="opcao" v-for="opcao in pergunta.opcoes" :key="pergunta.opcoes.indexOf(opcao)" @click="escolha = pergunta.opcoes.indexOf(opcao)">{{ opcao }} </p>        
         </div>                 
     </div> 
 </template>
@@ -18,7 +16,8 @@ export default {
   props: { pergunta: Object },
   data: () => {
     return {
-      escolha: ""
+      escolha: "",
+      clicado: ""
     };
   },
   methods: {}
@@ -43,6 +42,10 @@ export default {
 
 .respostas p:hover {
   cursor: pointer;
+  color: #fbcb43;
+}
+
+#clicado {
   color: #fbcb43;
 }
 
