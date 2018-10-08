@@ -51,6 +51,7 @@ export default {
     },
     onSubmit() {
       if (this.textoBotao === "Próxima pergunta") {
+
         this.reset();
         this.progresso += 20;
         this.questao = this.buscarPergunta();
@@ -67,6 +68,7 @@ export default {
           this.aumentaPontos();
         } else this.classe = "errado";
         this.textoBotao = "Próxima pergunta";
+        
       }, 2000);
     },
     buscarPergunta() {

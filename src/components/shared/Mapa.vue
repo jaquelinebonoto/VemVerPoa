@@ -5,10 +5,13 @@
       <br>
       <GmapMap
         :center="centro"
-        :zoom="7"
+        :zoom="15"
         map-type-id="terrain"
         style="width: 600px; height: 400px"
       >
+        <GmapMarker
+            :position="centro"
+         />
       </GmapMap>
       <!--Buttons-->
       <div class="row text-center">
@@ -33,13 +36,7 @@ import TelaJogo from '../screens/TelaJogo.vue'
 
 export default {
   name: "OMapa",
-  props: { pergunta: Object },
-  data: () => {
-    return {
-      centro: "pergunta.centro"
-    };
-  },
-  methods: {}
+  props: { centro: Object }
 };
 </script>
 

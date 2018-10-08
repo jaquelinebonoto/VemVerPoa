@@ -35,6 +35,6 @@ export default {
 
 <style>
 button {
-  width: 42%;
+  width: 62%;
 }
 </style>
