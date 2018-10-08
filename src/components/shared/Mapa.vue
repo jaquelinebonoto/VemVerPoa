@@ -5,8 +5,8 @@
       <br>
       <GmapMap
         :center="centro"
-        :zoom="15"
-        map-type-id="satellite"
+        :zoom="7"
+        map-type-id="terrain"
         style="width: 600px; height: 400px"
       >
       </GmapMap>
@@ -27,9 +27,19 @@
 </template>
 
 <script>
+import Questao from './Questao.vue'
+import TelaJogo from '../screens/TelaJogo.vue'
+
+
 export default {
   name: "OMapa",
-  props: { centro: Object }
+  props: { pergunta: Object },
+  data: () => {
+    return {
+      centro: "pergunta.centro"
+    };
+  },
+  methods: {}
 };
 </script>
 
