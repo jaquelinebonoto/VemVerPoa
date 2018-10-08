@@ -15,9 +15,7 @@
     <OMapa :centro="centro"/>
 </div>
 </div>
-
 </template>
-
 
 <script >
 import mapApi from "../../api/map.js";
@@ -50,8 +48,10 @@ export default {
       this.$refs.questaoRef.escolha = "";
     },
     onSubmit() {
-      if (this.textoBotao === ("Correto! Clique para avançar.") || 
-      this.textoBotao === ("Errado. :( Clique para avançar.")) {
+      if (
+        this.textoBotao === "Correto! Clique para avançar." ||
+        this.textoBotao === "Errado. :( Clique para avançar."
+      ) {
         this.reset();
         this.progresso += 20;
         this.questao = this.buscarPergunta();
@@ -70,7 +70,7 @@ export default {
         } else {
           this.classe = "errado";
           this.textoBotao = "Errado. :( Clique para avançar.";
-        }         
+        }
       }, 2000);
     },
     buscarPergunta() {
@@ -118,7 +118,6 @@ export default {
   height: 100%;
   display: inline-flex;
 }
-
 
 .progress {
   width: 90%;

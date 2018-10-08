@@ -25,10 +25,10 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 .questoes {
-  font-family: 'Roboto', sans-serif;
-    font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
   font-weight: 700;
   font-style: bold;
   border-top: 1px solid #fff;
@@ -37,7 +37,7 @@ export default {
 }
 
 .respostas p {
-  font-family: 'Roboto', sans-serif;  
+  font-family: "Roboto", sans-serif;
   text-align: left;
   padding: 10px 0 0 0;
   font-size: 16px;

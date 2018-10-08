@@ -43,4 +43,3 @@ export default {
   margin: 5%;
 }
 </style>
-

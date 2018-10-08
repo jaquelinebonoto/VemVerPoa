@@ -20,16 +20,11 @@
 </template>
 
 <script>
-import Questao from './Questao.vue'
-import TelaJogo from '../screens/TelaJogo.vue'
-
+import Questao from "./Questao.vue";
+import TelaJogo from "../screens/TelaJogo.vue";
 
 export default {
   name: "OMapa",
   props: { centro: Object }
 };
 </script>
-
-
-
-

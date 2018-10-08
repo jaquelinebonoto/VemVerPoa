@@ -34,13 +34,11 @@ export default {
 </script>
 
 <style>
-
 .row {
   background-image: url("../../assets/fundo.png");
   background-image: no-repeat;
 }
-#btnCapa{
+#btnCapa {
   width: 82%;
 }
 </style>
-
