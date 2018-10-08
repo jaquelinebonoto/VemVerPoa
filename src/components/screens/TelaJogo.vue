@@ -119,10 +119,7 @@ export default {
   display: inline-flex;
 }
 
-.colMapa {
-  width: 60%;
-  height: 100%;
-}
+
 .progress {
   width: 90%;
   margin: 5%;

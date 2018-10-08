@@ -7,25 +7,15 @@
         :center="centro"
         :zoom="15"
         map-type-id="terrain"
-        style="width: 600px; height: 400px"
+        style= "width: 600px; height: 400px; border-style: outset"
       >
         <GmapMarker
             :position="centro"
          />
       </GmapMap>
       <!--Buttons-->
-      <div class="row text-center">
-        <div class="col-md-4">
-          <a class="btn-floating blue accent-1"><i class="fa fa-map-marker"></i></a>
-          <p>Porto Alegre, RS</p>
-          <p>Brasil</p>
-        </div>
-        <div class="col-md-4">
-          <a class="btn-floating blue accent-1"><i class="fa fa-envelope"></i></a>
-          <p>jaqueline.bonoto@dbccompany.com.br</p>
-          <p>douglas.marques@dbccompany.com.br / {{ centro }} </p>
-        </div>
-      </div>
+ 
+      
     </div>
 </template>
 
@@ -39,4 +29,7 @@ export default {
   props: { centro: Object }
 };
 </script>
+
+
+
 

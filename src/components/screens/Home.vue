@@ -1,7 +1,7 @@
 <template>
   <div class="row mx-auto">
-    <div class="col"><img alt="Prefeitura de Porto Alegre" src="../../assets/poa.png" height="200px" width="200px"><br>
-    <Button v-bind:texto="textoBotao" v-bind:onClick="jogar" type="submit"/></div>    
+    <div class="col"><img alt="Prefeitura de Porto Alegre" src="../../assets/poa.png" height="250px" width="250px"><br>
+    <Button id="btnCapa" v-bind:texto="textoBotao" v-bind:onClick="jogar" type="submit"/></div>    
   </div>
 </template>
 
@@ -34,7 +34,13 @@ export default {
 </script>
 
 <style>
-button {
-  width: 62%;
+
+.row {
+  background-image: url("../../assets/fundo.png");
+  background-image: no-repeat;
+}
+#btnCapa{
+  width: 82%;
 }
 </style>
+
